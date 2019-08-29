@@ -16,7 +16,7 @@ const PrivateRoutes = props => {
   return (
     <Layout  
       style={{ 
-        height: '100%',
+        minHeight: '100%',
         paddingTop: '80px',
         paddingBottom: '40px',
       }}>
