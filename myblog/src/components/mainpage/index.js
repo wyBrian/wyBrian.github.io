@@ -1,37 +1,40 @@
-import React from "react"
+import React from 'react'
 import { Col, Card, Button, Icon } from 'antd'
+import { Link } from 'react-router-dom'
+import mainStyle from "../../resources/css/MainPage.module.css"
 
-// backgroundColor:'#dfe0e4'
 const MainPage = () => 
-    <div style={{height: '100%', width: '100%', backgroundImage:'https://www.keuringvooru.nl/wp-content/uploads/2016/08/grey-background-facebook-3-md.png', fontFamily: 'Comic Sans MS'}}> 
+    <div className={mainStyle.mainDiv}> 
       <Col span={12}>
-        <Card
-          hoverable
-          bordered={false}
-          style={{ margin: '10%', width:'84%' }}
-        >
+        <Card hoverable bordered={false} style={{ margin: '5%', width:'84%' }}>
           <Card.Meta 
             style={{textAlign: 'center'}}
             title={<p style={{fontWeight: 'bold', fontSize: 28 }}>Brian, Wang Yu</p>}
             description={<p style={{fontStyle: 'italic'}}>Yet Another Software Development Engineer</p>} 
           />
         </Card>
-        <Card style={{ marginLeft: '20%', width:'40%'}}></Card>
-        <br/>
-        <Card style={{ marginLeft: '40%', width:'40%'}}></Card>
-        <br/>
-        <Card style={{ marginLeft: '20%', width:'40%'}}></Card>
-        <br/>
-        <Card style={{ marginLeft: '40%', width:'40%'}}></Card>
+        <div style={{ textAlign:'center' }}>
+          <Card style={{ marginLeft: '20%', width:'40%' }}> <Link to='/home/info'> About Me </Link> </Card> 
+          <br/>
+          <Card style={{ marginLeft: '40%', width:'40%' }}> <Link to='/home/experience'> Experience </Link> </Card>
+          <br/>
+          <Card style={{ marginLeft: '20%', width:'40%' }}> <Link to='/home/interest'> Interests </Link> </Card>
+          <br/>
+          <Card style={{ marginLeft: '40%', width:'40%' }}> <Link to='/home/blog'> Blogs </Link> </Card>
+        </div>
         <Card title="Connect With Me"  style={{margin: '5% 15%', width:'70%', textAlign: 'center'}}>
           <Col span={8}>
-            <Button type="normal"> <Icon type="github" /> Github </Button>
+            <Button type="normal" onClick={()=>window.open('https://github.com/wyBrian')}> <Icon type="github" /> Github </Button>
           </Col>
           <Col span={8}>
-            <Button type="normal"> <Icon type="linkedin" /> Linkedin </Button>
+            <Button type="normal" onClick={()=>window.open('https://www.linkedin.com/in/wang-yu-2155bba4/')}> 
+              <Icon type="linkedin" /> Linkedin 
+            </Button>
           </Col>
           <Col span={8}>
-            <Button type="normal"> <Icon type="medium" /> Medium </Button>
+            <Button type="normal" onClick={()=>window.open('https://medium.com/@wangyu121x')}> 
+              <Icon type="medium" /> Medium 
+            </Button>
           </Col>
         </Card>
       </Col>

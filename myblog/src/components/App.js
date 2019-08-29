@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import { Layout } from 'antd'
 import history from '../history'
-import '../resources/css/App.css'
 import StickyHeader from './StickyHeader'
 import InformationPage from './information'
 import MainPage from './mainpage'
@@ -10,30 +9,35 @@ import ContactPage from './contactme'
 import ExperiencePage from './experience'
 import InterestPage from './interests'
 import BlogPage from './blogs'
+import '../resources/css/App.css'
 
 
-const PrivateRoutes = () => 
-  <Layout  
-    style={{ 
-      height: '100%',
-      paddingTop: '80px',
-      paddingBottom: '40px',
-    }}>
-    <StickyHeader />
-    <Layout.Content>
-      <Route exact path='/info' component={InformationPage}/>
-      <Route exact path='/contactme' component={ContactPage}/>
-      <Route exact path='/experience' component={ExperiencePage}/>
-      <Route exact path='/interest' component={InterestPage}/>
-      <Route exact path='/blog' component={BlogPage}/>
-    </Layout.Content>
-  </Layout>
+const PrivateRoutes = props => {
+  return (
+    <Layout  
+      style={{ 
+        height: '100%',
+        paddingTop: '80px',
+        paddingBottom: '40px',
+      }}>
+      <StickyHeader />
+      <Layout.Content>
+        <Route path={`${props.match.path}/info`} component={InformationPage}/>
+        <Route path={`${props.match.path}/contactme`} component={ContactPage}/>
+        <Route path={`${props.match.path}/experience`} component={ExperiencePage}/>
+        <Route path={`${props.match.path}/interest`} component={InterestPage}/>
+        <Route path={`${props.match.path}/blog`} component={BlogPage}/>
+      </Layout.Content>
+    </Layout>
+  )
+}
+
 
 const App = () =>
   <Router history={history}>
+      <Route exact path='/' component={MainPage}/>
       <Switch>
-          <Route exact path='/' component={MainPage}/>
-          <Route path='/me' component={PrivateRoutes}/>
+          <Route path='/home' component={PrivateRoutes}/>
       </Switch>
   </Router>
 

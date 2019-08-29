@@ -1,0 +1,9 @@
+.mainDiv {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow-x: hidden;
+  background: url("../../resources/images/mainbgi.jpg") center center;
+  background-size: cover;
+  font-family: 'Comic Sans MS'
+}
