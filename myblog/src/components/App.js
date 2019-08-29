@@ -17,7 +17,7 @@ const PrivateRoutes = props => {
     <Layout  
       style={{ 
         minHeight: '100%',
-        paddingTop: '80px',
+        paddingTop: '64px',
         paddingBottom: '40px',
       }}>
       <StickyHeader />

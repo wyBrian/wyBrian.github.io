@@ -12,7 +12,7 @@ const BlogPage = () => {
   fetch(test).then(response => response.text()).then(text=>setText(text))
 
   return (
-    <div style={{padding: '0 25vw', height: '100%'}}> 
+    <div style={{padding: '0 25vw', minHeight: '100%'}}> 
       <ReactMarkdown source={text} renderers={{ code: CodeBlockHighlighter }}/>
     </div>
   )
