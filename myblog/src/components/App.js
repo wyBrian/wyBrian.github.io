@@ -11,26 +11,30 @@ import ExperiencePage from './experience'
 import InterestPage from './interests'
 import BlogPage from './blogs'
 
+
+const PrivateRoutes = () => 
+  <Layout  
+    style={{ 
+      height: '100%',
+      paddingTop: '80px',
+      paddingBottom: '40px',
+    }}>
+    <StickyHeader />
+    <Layout.Content>
+      <Route exact path='/info' component={InformationPage}/>
+      <Route exact path='/contactme' component={ContactPage}/>
+      <Route exact path='/experience' component={ExperiencePage}/>
+      <Route exact path='/interest' component={InterestPage}/>
+      <Route exact path='/blog' component={BlogPage}/>
+    </Layout.Content>
+  </Layout>
+
 const App = () =>
   <Router history={history}>
-    <Layout  style={
-      { 
-        height: '100%',
-        paddingTop: '80px',
-        paddingBottom: '40px',
-      }}>
-        <StickyHeader />
-        <Layout.Content>
-          <Switch>
-            <Route exact path='/' component={MainPage}/>
-            <Route path='/info' component={InformationPage}/>
-            <Route path='/contactme' component={ContactPage}/>
-            <Route path='/experience' component={ExperiencePage}/>
-            <Route path='/interest' component={InterestPage}/>
-            <Route path='/blog' component={BlogPage}/>
-          </Switch>
-        </Layout.Content>
-    </Layout>
+      <Switch>
+          <Route exact path='/' component={MainPage}/>
+          <Route path='/me' component={PrivateRoutes}/>
+      </Switch>
   </Router>
 
 export default App
